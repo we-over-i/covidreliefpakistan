@@ -1,0 +1,401 @@
+<!-- List Results || Pagination -->
+<div class="list-results card" id="organizationList">
+  <div class="list-padding">
+    <div class="left">
+      <h4 class="title">Available Organisations</h4>
+      <p class="description mt-2">
+        Showing <strong>{{ showingOrganizations }}</strong> out of
+        <strong>{{ organizationsCount }}</strong> results
+      </p>
+    </div>
+    <div class="right">
+      <div class="pagination">
+        <nav aria-label="pages">
+          <ul class="pagination pagination-md m-t-b-20">
+            <li class="page-item active" *ngIf="enablePre">
+              <a class="page-link" (click)="previousPage(firstKey)">
+                <i class="fas fa-angle-left"></i>
+              </a>
+            </li>
+            <li class="page-item active" *ngIf="enableNext">
+              <a class="page-link" (click)="nextPage(lastKey)">
+                <i class="fas fa-angle-right"></i>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Location Filter -->
+<div class="filter-card card btop">
+  <div class="row" style="height: 100%;">
+    <div class="col-xl-5 col-lg-4 p-0 m-0 search-bar">
+      <div class="d-flex selectDiv" style="height: 100%;">
+        <img class="large-location-icon" src="./../../../../assets/images/icons/large-location.png"
+          alt="large-location-icon" />
+        <select class="form-control location-selector" (change)="selectedOrganizationLocation($event.target.value)">
+          <option value="none" disabled>Search by location</option>
+          <option value="all">Select all</option>
+          <option *ngFor="let locs of organizationLocations" [value]="locs">
+            {{ locs }}
+          </option>
+        </select>
+      </div>
+    </div>
+    <div class="col-xl-7 col-lg-8 p-0 m-0 select-filters-card">
+      <div class="row">
+        <div class="col-3 p-0">
+          <h6 class="select-filters-title">Filter by</h6>
+        </div>
+        <div class="col-3 p-0 m-0 selectDiv">
+          <select class="form-control selectors" style="text-transform: capitalize;"
+            (change)="typeSelector($event.target.value)">
+            <option value="none" disabled>Type</option>
+            <option value="all">Select all</option>
+            <option *ngFor="let type of organizationsTypes" [value]="type">
+              {{ type }}
+            </option>
+          </select>
+        </div>
+        <div class="col-3 pr-0 selectDiv">
+          <select class="form-control selectors" style="text-transform: capitalize;"
+            (change)="providingSelector($event.target.value)">
+            <option value="none" disabled>Providing</option>
+            <option value="all">Select all</option>
+            <option *ngFor="let helpingWith of helpingsWith[0]" [value]="helpingWith.key">
+              {{ helpingWith.name }}
+            </option>
+          </select>
+        </div>
+        <div class="col-3 pr-0 selectDiv">
+          <select class="form-control selectors" (change)="needSelector($event.target.value)">
+            <option value="none" disabled>Need</option>
+            <option value="all">Select all</option>
+            <option *ngFor="let lookingFor of lookingsFor[0]" [value]="lookingFor.key"
+              style="text-transform: capitalize;">
+              {{ lookingFor.name }}
+            </option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Organizations Cards -->
+<div *ngFor="let detail of organizations; let i = index">
+  <div class="organization-card card btop">
+    <div class="organization-padding">
+      <div class="title-contact-help-us">
+        <div class="left">
+          <h4 class="title">{{ detail.name }}</h4>
+          <div class="d-flex h-15">
+            <!-- location -->
+            <div class="d-flex">
+              <img class="loc-icon" src="./../../../assets/images/icons/location.png" alt="location" />
+              <span *ngFor="let loc of detail.Locations; let l = index" class="ml-2 loc-name"><strong *ngIf="l > 0"
+                  class="mr-2">-</strong>{{ loc }}</span>
+            </div>
+
+            <!-- contact -->
+            <div class="d-flex ml-3 pl-3 bleft">
+              <img class="phone-icon" src="./../../../assets/images/icons/phone.png" alt="location" />
+              <span class="ml-3">
+                <p class="phone-number">{{ detail.Contacts[0] }}</p>
+              </span>
+            </div>
+
+            <!-- facebook -->
+            <div *ngIf="detail.facebook !== 0" class="ml-3 pl-3 bleft">
+              <a class="" href="{{ detail.facebook }}" target="_blank">
+                <img class="facebook-icon" src="./../../../assets/images/icons/facebook.png" alt="location" />
+              </a>
+            </div>
+
+            <!-- instagram -->
+            <div *ngIf="detail.instagram !== 0" class="ml-3 pl-3 bleft">
+              <a class="p-0" href="{{ detail.instagram }}" target="_blank">
+                <img class="instagram-icon" src="./../../../assets/images/icons/instagram.png" alt="location" />
+              </a>
+            </div>
+
+            <!-- Twitter -->
+            <div *ngIf="detail.twitter !== 0" class="ml-3 pl-3 bleft">
+              <a class="p-0" href="{{ detail.twitter }}" target="_blank">
+                <img class="instagram-icon" src="./../../../assets/images/icons/twitter.png" alt="location" />
+              </a>
+            </div>
+
+            <!-- Website -->
+            <div *ngIf="detail.website !== 0" class="ml-3 pl-3 bleft">
+              <a class="p-0" href="{{ detail.website }}" target="_blank">
+                <img class="instagram-icon" src="./../../../../assets/images/icons/website.png" alt="website-icon" />
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Help us Button to open Help Us Modal -->
+        <div class="right">
+          <button type="button" class="btn btn-help-us" data-toggle="modal" data-target="#accountsModal"
+            (click)="getDetails(detail, detail.key)">
+            HELP US
+          </button>
+        </div>
+      </div>
+      <div class="des">
+        <div class="left">
+          <p class="desc">
+            {{ detail.description }}
+          </p>
+        </div>
+      </div>
+      <div class="help-categories">
+        <div class="left">
+          <div class="tag-heads">
+            <h4 class="tag-title">We are helping with</h4>
+            <div class="d-flex categories">
+              <div *ngFor="let help of detail.Helpings">
+                <div *ngFor="let helpingWith of helpingsWith[0]">
+                  <div *ngIf="help == helpingWith.key">
+                    <div class="text-center mRight-8 help-tag">
+                      <a style="text-transform: capitalize;">{{
+                        helpingWith.name
+                      }}</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="right">
+          <div class="tag-heads">
+            <h4 class="tag-title text-right">We are looking for</h4>
+            <div class="d-flex categories">
+              <div *ngFor="let look of detail.Lookings">
+                <div *ngFor="let lookfor of lookingsFor[0]">
+                  <div *ngIf="look == lookfor.key">
+                    <div class="text-center mLeft-8 help-tag">
+                      <a style="text-transform: capitalize;">{{
+                        lookfor.name
+                      }}</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Bottom pagination -->
+<div class="bottom-pagination card btop">
+  <div class="right">
+    <div class="pagination">
+      <nav aria-label="pages">
+        <ul class="pagination pagination-md m-t-b-20">
+          <li class="page-item active" *ngIf="enablePre">
+            <a class="page-link" (click)="previousPage(firstKey)">
+              Previous
+            </a>
+          </li>
+          <li class="page-item active" *ngIf="enableNext">
+            <a class="page-link" (click)="nextPage(lastKey)">
+              Next
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+<!-- Help Us Modal -->
+<!-- Modal -->
+<div class="modal fade" id="accountsModal" tabindex="-1" role="dialog" style="
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+    padding-right: 0% !important;
+  " aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="modal-title" id="exampleModalScrollableTitle">
+          <div class="d-flex" style="flex-direction: column;">
+            <h5 class="modal-header-title">{{ name }}</h5>
+            <div class="d-flex h-15">
+              <!-- location -->
+              <div class="d-flex">
+                <img class="loc-icon" src="./../../../assets/images/icons/location.png" alt="location" />
+                <span *ngFor="let loc of locs; let k = index" class="ml-2 loc-name">
+                  {{ locs[0] }}
+                </span>
+              </div>
+
+              <!-- contact -->
+              <div class="d-flex ml-3 pl-3 bleft">
+                <img class="phone-icon" src="./../../../assets/images/icons/phone.png" alt="location" />
+                <span class="ml-3">
+                  <p class="phone-number">
+                    {{ phones[0] }}
+                  </p>
+                </span>
+              </div>
+
+              <!-- facebook -->
+              <div *ngIf="fLink !== 0" class="ml-3 pl-3 bleft">
+                <a class="" href="{{ fLink }}" target="_blank">
+                  <img class="facebook-icon" src="./../../../assets/images/icons/facebook.png" alt="location" />
+                </a>
+              </div>
+
+              <!-- instagram -->
+              <div *ngIf="iLink !== 0" class="ml-3 pl-3 bleft">
+                <a class="p-0" href="{{ iLink }}" target="_blank">
+                  <img class="instagram-icon" src="./../../../assets/images/icons/instagram.png" alt="location" />
+                </a>
+              </div>
+
+              <!-- Twitter -->
+              <div *ngIf="tLink !== 0" class="ml-3 pl-3 bleft">
+                <a class="p-0" href="{{ tLink }}" target="_blank">
+                  <img class="instagram-icon" src="./../../../assets/images/icons/twitter.png" alt="location" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body p-0">
+        <div class="row mobile-response">
+          <div *ngIf="bankStatus == 1" [style.display]="leftDisplay" class="width-50 p-0">
+            <div class="row details-p mr-4">
+              <div class="col-12 card-padding">
+                <div>
+                  <div>
+                    <h5 *ngIf="easypaiseStatus == 1 || jazzCashStatus == 1" class="gatway-title"
+                      style="padding-top: 16px !important;">
+                      Available Payment Gateways
+                    </h5>
+                    <div *ngIf="easypaiseStatus == 1 || jazzCashStatus == 1" class="row boxes-padding border-bottom"
+                      style="padding-bottom: 16px !important;">
+                      <div *ngIf="jazzCashStatus == 1" class="gatway-box" style="margin-right: 24px;">
+                        <img src="./../../../assets/images/icons/jazzcash.png" alt="JazzCash" />
+                        <div *ngFor="let num of jazzCash">
+                          <h6 class="contact" style="margin-top: 8px !important;">
+                            {{ num.accountNumber }}
+                          </h6>
+                        </div>
+                      </div>
+                      <div *ngIf="easypaiseStatus == 1" class="gatway-box">
+                        <img src="./../../../assets/images/icons/easypaisa.png" alt="JazzCash" />
+                        <div *ngFor="let num of easypaisa">
+                          <h6 class="contact" style="margin-top: 12px !important;">
+                            {{ num.accountNumber }}
+                          </h6>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div *ngIf="addressStatus == 1" class="row border-bottom" style="
+                    padding-top: 16px !important;
+                    padding-bottom: 16px !important;
+                  ">
+                  <h5 class="gatway-address-description">
+                    In order to make donations in person, use the following
+                    addresses:
+                  </h5>
+                  <div class="row">
+                    <div *ngFor="let addressDetail of addresses">
+                      <div class="address-box" style="margin-top: 16px;">
+                        <div class="d-flex">
+                          <img class="address-padding" src="./../../../assets/images/icons/Vector.png"
+                            alt="Home Address" />
+                          <div class="row address-content">
+                            <h6 class="address-title">
+                              {{ addressDetail.address }}
+                            </h6>
+                            <h6 class="address-phone">
+                              <b>Phone:</b> {{ addressDetail.phone }}
+                            </h6>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-12 card-padding">
+                <h4 class="accounts-title">List of Bank Accounts</h4>
+                <div *ngFor="let acc of bankAccounts; let i = index">
+                  <div class="accounts-details">
+                    <div class="d-flex mBottom-16">
+                      <div class="p-0 col-4 text-left acc-field-name">
+                        Bank Name
+                      </div>
+                      <div class="pr-0 col-6 text-left acc-field-value">
+                        {{ acc.bankName }}
+                      </div>
+                    </div>
+                    <div class="d-flex mBottom-16" *ngIf="acc.branch !== 0">
+                      <div class="p-0 col-4 text-left acc-field-name">
+                        Branch
+                      </div>
+                      <div class="pr-0 col-6 text-left acc-field-value">
+                        {{ acc.branch }}
+                      </div>
+                    </div>
+                    <div class="d-flex mBottom-16">
+                      <div class="p-0 col-4 text-left acc-field-name">
+                        Account Title
+                      </div>
+                      <div class="pr-0 col-6 text-left acc-field-value">
+                        {{ acc.accountTitle }}
+                      </div>
+                    </div>
+                    <div class="d-flex mBottom-16">
+                      <div class="col-4 p-0 text-left acc-field-name">
+                        Account Number
+                      </div>
+                      <div class="col-6 pr-0 text-left acc-field-value">
+                        {{ acc.accountNumber }}
+                      </div>
+                    </div>
+                    <div class="d-flex mBottom-16" *ngIf="acc.IBAN !== 0">
+                      <div class="col-4 p-0 text-left acc-field-name">IBAN</div>
+                      <div class="col-6 pr-0 text-left acc-field-value">
+                        {{ acc.IBAN }}
+                      </div>
+                    </div>
+                    <div class="d-flex" *ngIf="acc.swiftCode !== 0">
+                      <div class="col-4 p-0 text-left acc-field-name">
+                        Swift Code
+                      </div>
+                      <div class="col-6 pr-0 text-left acc-field-value">
+                        {{ acc.swiftCode }}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer"></div>
+    </div>
+  </div>
+</div>

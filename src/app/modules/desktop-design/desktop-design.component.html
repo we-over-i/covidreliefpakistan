@@ -1,0 +1,29 @@
+<app-loader></app-loader>
+<app-header></app-header>
+<app-banner></app-banner>
+
+<!-- Main Content -->
+<main class="content">
+  <div class="col-lg-12 pl-0 resources-bar">
+    <div class="bar-padding">
+      <h2 class="bar-title">View general resources related to COVID - 19</h2>
+      <img
+        routerLink="/resources"
+        class="bar-icon"
+        style="cursor: pointer;"
+        src="./../../../assets/images/icons/angle-right.png"
+        alt="angle-right"
+      />
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xl-9 col-lg-12 pl-0">
+      <app-organizations></app-organizations>
+    </div>
+    <div class="less-than-1200 w-247 ml-33">
+      <app-resources></app-resources>
+    </div>
+  </div>
+</main>
+
+<app-footer></app-footer>

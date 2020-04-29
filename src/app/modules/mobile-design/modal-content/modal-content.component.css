@@ -1,0 +1,209 @@
+.content {
+  width: 100%;
+  height: 100vh;
+  background: #ffffff;
+  border: 1px solid #eeeeee;
+}
+.card {
+  border-radius: 0% !important;
+  border: none !important;
+  padding-left: 16px !important;
+  padding-right: 16px !important;
+  padding-bottom: 32px !important;
+}
+.header {
+  padding: 16px !important;
+  border-bottom: 2px solid #e0e0e0;
+}
+.cancel-icon {
+  margin-right: 29px !important;
+  align-self: center;
+}
+.header-title {
+  font-family: "Open-Sans-Bold";
+  font-style: normal;
+  font-size: 14px;
+  line-height: 19px;
+  letter-spacing: 0.08em;
+  color: #424242;
+}
+
+.organization-details {
+  padding-top: 18px !important;
+}
+.organization-details .title {
+  font-family: "Open-Sans-Bold";
+  font-style: normal;
+  font-size: 14px;
+  line-height: 19px;
+  letter-spacing: 0.04em;
+  color: #2196f3;
+}
+.mt-8 {
+  margin-top: 8px !important;
+}
+.mr-8 {
+  margin-right: 8px !important;
+}
+.mt-16 {
+  margin-top: 16px !important;
+}
+.loc-icon {
+  width: 8.2px;
+  height: 11.7px;
+  margin-top: 2px;
+}
+.phone-icon {
+  width: 10.5px;
+  height: 10.5px;
+  margin-top: 2px;
+}
+.facebook-icon {
+  width: 11.7px;
+  height: 11.6px;
+  margin-top: -12px;
+}
+.instagram-icon {
+  width: 11.7px;
+  height: 11.7px;
+  margin-top: -10px;
+}
+.loc-name,
+.phone-number {
+  font-family: "Open-Sans-Regular";
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: 0.8px;
+  color: #424242;
+  font-size: 10px;
+  line-height: 170.5%;
+}
+
+.plr {
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+}
+.bleft {
+  border-left: 1px solid #e0e0e0;
+}
+.h-16 {
+  height: 16px !important;
+}
+.gateway-padding {
+  padding: 16px 0 0 !important;
+}
+.contact {
+  font-family: "Open-Sans-Bold";
+  font-style: normal;
+  font-size: 12px;
+  line-height: 16px;
+  text-align: center;
+  letter-spacing: 0.04em;
+  color: #000000;
+}
+.account-title {
+  font-family: "Open-Sans-Bold";
+  font-style: normal;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.04em;
+  color: #000000;
+  padding-top: 16px !important;
+}
+.detail-box {
+  background: #e1f5fe;
+  border: 1px solid #03a9f4;
+  box-sizing: border-box;
+  border-radius: 4px;
+}
+.accounts-padding {
+  padding: 16px !important;
+}
+.accounts-titles {
+  font-family: "Open-Sans-Bold";
+  font-style: normal;
+  font-size: 10px;
+  line-height: 14px;
+  letter-spacing: 0.08em;
+  color: #000000;
+}
+.acc-field-value {
+  font-family: "Open-Sans-Regular";
+  font-style: normal;
+  font-size: 10px;
+  line-height: 14px;
+  letter-spacing: 0.08em;
+  color: #000000;
+}
+.mb-8 {
+  margin-bottom: 8px !important;
+}
+.card-padding {
+  padding-top: 16px !important;
+}
+.payment-gateways {
+  padding-top: 16px !important;
+}
+.gatway-title {
+  font-family: "Open-Sans-Bold";
+  font-style: normal;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.04em;
+  color: #000000;
+  padding-bottom: 16px !important;
+}
+.gatway-box {
+  background: #fafafa;
+  border: 1px solid #e0e0e0;
+  box-sizing: border-box;
+  border-radius: 4px;
+  width: 48%;
+  padding-top: 17px;
+  padding-bottom: 17px;
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+}
+.gatway-address-description {
+  font-family: "Open-Sans-Bold";
+  font-style: normal;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.04em;
+  color: #424242;
+  padding-top: 16px !important;
+}
+.address-box {
+  background: #fafafa;
+  border: 1px solid #e0e0e0;
+  box-sizing: border-box;
+  border-radius: 4px;
+  margin-top: 16px !important;
+}
+.address-content {
+  border-left: 1px solid #e0e0e0;
+  margin-left: 16px !important;
+  padding: 16px !important;
+}
+.address-padding {
+  padding-left: 16px !important;
+  align-self: center;
+}
+.address-content .address-title {
+  font-family: "Open-Sans-Bold";
+  font-style: normal;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.04em;
+  color: #000000;
+}
+.address-content .address-phone {
+  font-family: "Open-Sans-Regular";
+  font-style: normal;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.04em;
+  color: #000000;
+  margin-top: 16px !important;
+}

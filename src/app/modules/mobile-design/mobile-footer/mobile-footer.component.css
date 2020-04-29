@@ -1,0 +1,74 @@
+.footer {
+  width: 100%;
+  margin: 0;
+  padding: 24px 32px 32px 32px !important;
+  position: relative;
+  z-index: 9999;
+  background-color: #2196f3;
+}
+.row {
+  flex-direction: column !important;
+}
+.footer-title {
+  font-family: "Open-Sans-Bold";
+  font-style: normal;
+  font-size: 18px;
+  line-height: 33px;
+  color: #ffffff;
+}
+.footer-description {
+  padding-top: 8px !important;
+  font-family: "Open-Sans-Regular";
+  font-style: normal;
+  font-size: 14px;
+  line-height: 22px;
+  color: #ffffff;
+}
+.footer-button {
+  margin-top: 24px !important;
+  background: #ffffff;
+  border-radius: 2px;
+  padding: 11px 40px 12px !important;
+  color: #2196f3;
+  font-family: "Open-Sans-Bold";
+  font-style: normal;
+  font-size: 14px;
+  line-height: 25px;
+}
+.footer-card {
+  background: #1976d2;
+  opacity: 0.7;
+  margin-top: 32px;
+  padding: 16px 32px 16px 16px !important;
+  text-align: left !important;
+  width: max-content;
+}
+.footer-card-description {
+  font-family: "Open-Sans-Regular";
+  font-style: normal;
+  font-size: 14px;
+  line-height: 19px;
+  color: #ffffff;
+}
+.owner-name {
+  font-family: "Open-Sans-SemiBold";
+  font-style: normal;
+  font-size: 16px;
+  line-height: 22px;
+  color: #ffffff;
+  padding-top: 10px !important;
+}
+.contact-info {
+  margin-top: 10px !important;
+  color: #fff !important;
+  flex-direction: column;
+}
+.number,
+.email-address {
+  font-family: "Open-Sans-Regular";
+  font-style: normal;
+  font-size: 12px;
+  line-height: 20px;
+  letter-spacing: 0.08em;
+  color: #ffffff;
+}

@@ -1,0 +1,41 @@
+/* Website offical fonts => Open-Sans */
+@font-face {
+  font-family: Open-Sans-Light;
+  src: url(./assets/fonts/Open-Sans/OpenSans-Light.ttf);
+}
+@font-face {
+  font-family: Open-Sans-Regular;
+  src: url(./assets/fonts/Open-Sans/OpenSans-Regular.ttf);
+}
+@font-face {
+  font-family: Open-Sans-SemiBold;
+  src: url(./assets/fonts/Open-Sans/OpenSans-SemiBold.ttf);
+}
+@font-face {
+  font-family: Open-Sans-Bold;
+  src: url(./assets/fonts/Open-Sans/OpenSans-Bold.ttf);
+}
+@font-face {
+  font-family: Open-Sans-ExtraBold;
+  src: url(./assets/fonts/Open-Sans/OpenSans-ExtraBold.ttf);
+}
+@font-face {
+  font-family: Open-Sans-LightItalic;
+  src: url(./assets/fonts/Open-Sans/OpenSans-LightItalic.ttf);
+}
+@font-face {
+  font-family: Open-Sans-Italic;
+  src: url(./assets/fonts/Open-Sans/OpenSans-Italic.ttf);
+}
+@font-face {
+  font-family: Open-Sans-SemiBoldItalic;
+  src: url(./assets/fonts/Open-Sans/OpenSans-SemiBoldItalic.ttf);
+}
+@font-face {
+  font-family: Open-Sans-BoldItalic;
+  src: url(./assets/fonts/Open-Sans/OpenSans-BoldItalic.ttf);
+}
+@font-face {
+  font-family: Open-Sans-ExtraBoldItalic;
+  src: url(./assets/fonts/Open-Sans/OpenSans-ExtraBoldItalic.ttf);
+}

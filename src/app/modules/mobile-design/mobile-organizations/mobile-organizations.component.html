@@ -1,0 +1,128 @@
+<!-- List Results || Pagination -->
+<div class="list-results card" id="organizationList">
+  <div class="list-padding">
+    <div class="left">
+      <h4 class="title">Available Organisations</h4>
+      <p class="description mt-2">
+        Showing <b>{{ showingOrganizations }}</b> out of
+        <b>{{ organizationsCount }}</b> results
+      </p>
+    </div>
+    <div class="right">
+      <img (click)="filtersUI(allOrganizations)" class="mobile-filter-icon"
+        src="./../../../../assets/images/icons/mobile-filter.png" alt="Filter" />
+    </div>
+  </div>
+</div>
+
+<!-- Organizations Cards -->
+<div *ngFor="let detail of organizations | search: searchText; let i = index">
+  <div class="organization-card card btop">
+    <div class="organization-padding">
+      <h4 class="title">{{ detail.name }}</h4>
+      <div class="d-flex h-15 mt-3">
+        <!-- location -->
+        <div class="d-flex" style="padding-right: 0.5rem;">
+          <img class="loc-icon" src="./../../../assets/images/icons/location.png" alt="location" />
+          <span class="ml-2 loc-name">{{ detail.Locations[0] }}</span>
+        </div>
+
+        <!-- contact -->
+        <div class="d-flex plr bleft">
+          <img class="phone-icon" src="./../../../assets/images/icons/phone.png" alt="location" />
+          <span class="ml-2">
+            <p class="phone-number">{{ detail.Contacts[0] }}</p>
+          </span>
+        </div>
+
+        <!-- facebook -->
+        <div *ngIf="detail.facebook !== 0" class="plr bleft">
+          <a class="" href="{{ detail.facebook }}" target="_blank">
+            <img class="facebook-icon" src="./../../../assets/images/icons/facebook.png" alt="location" />
+          </a>
+        </div>
+
+        <!-- instagram -->
+        <div *ngIf="detail.instagram !== 0" class="plr bleft">
+          <a class="p-0" href="{{ detail.instagram }}" target="_blank">
+            <img class="instagram-icon" src="./../../../assets/images/icons/instagram.png" alt="location" />
+          </a>
+        </div>
+
+        <!-- Twitter -->
+        <div *ngIf="detail.twitter !== 0" class="plr bleft">
+          <a class="p-0" href="{{ detail.twitter }}" target="_blank">
+            <img class="instagram-icon" src="./../../../assets/images/icons/twitter.png" alt="location" />
+          </a>
+        </div>
+
+        <!-- Website -->
+        <div *ngIf="detail.website !== 0" class="plr bleft">
+          <a class="p-0" href="{{ detail.website }}" target="_blank">
+            <img class="instagram-icon" src="./../../../../assets/images/icons/website.png" alt="website-icon" />
+          </a>
+        </div>
+      </div>
+      <p class="desc">
+        {{ detail.description }}
+      </p>
+      <div class="help-categories">
+        <div class="tag-heads">
+          <h4 class="tag-title">We are helping with</h4>
+          <div class="d-flex help-tag" style="margin-top: 8px !important;">
+            <div *ngFor="let help of detail.Helpings">
+              <div *ngFor="let helpingWith of helpingsWith[0]">
+                <div *ngIf="help == helpingWith.key">
+                  <a style="
+                      text-transform: capitalize;
+                      margin-right: 8px !important;
+                    ">{{ helpingWith.name }}</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tag-heads">
+          <h4 class="tag-title text-left">We are looking for</h4>
+          <div class="d-flex help-tag" style="margin-top: 8px !important;">
+            <div *ngFor="let look of detail.Lookings">
+              <div *ngFor="let lookfor of lookingsFor[0]">
+                <div *ngIf="look == lookfor.key">
+                  <a style="
+                      text-transform: capitalize;
+                      margin-right: 8px !important;
+                    ">{{ lookfor.name }}</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button type="button" class="btn btn-help-us" (click)="getDetails(detail, detail.key)">
+        HELP US
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Bottom pagination -->
+<div class="bottom-pagination card btop">
+  <div class="right">
+    <div class="pagination">
+      <nav aria-label="pages">
+        <ul class="pagination pagination-md m-t-b-20">
+          <li class="page-item active" *ngIf="enablePre">
+            <a class="page-link" (click)="previousPage(firstKey)">
+              <i class="fas fa-angle-left"></i>
+            </a>
+          </li>
+          <li class="page-item active" *ngIf="enableNext">
+            <a class="page-link" (click)="nextPage(lastKey)">
+              <i class="fas fa-angle-right"></i>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</div>
