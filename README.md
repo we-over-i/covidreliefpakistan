@@ -1,4 +1,4 @@
-# COVID Relief Pakistan
+# COVID Relief Pakistan (Version 1.0.0)
 
 [COVID Relief Pakistan](https://covidreliefpakistan.com/)  will help you in finding the relevant organizations working for COVID relief in Pakistan
 
@@ -36,4 +36,4 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 ## Copyrights
 
-Copyright (C) 2020 Muhammad Saad
+Copyright (C) 2020 [Muhammad Saad](saad@we-over-i.com)
