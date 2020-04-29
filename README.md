@@ -10,7 +10,7 @@
 
 ## Installation
 
-First go and click download or clone button to download or clonning the repository on your local machine.After downloading or clonning the repository, use this command to install all node packages used in this project `npm install`.
+First go and click download or clone button to download or clone the repository on your local machine. After downloading the repository, use this command to install all node packages used in this project `npm install`.
 
 
 ## Development server
