@@ -1,0 +1,16 @@
+@media (min-width: 992px) {
+  .desltop-design {
+    display: block;
+  }
+  .mobile-design {
+    display: none;
+  }
+}
+@media (max-width: 991px) {
+  .desltop-design {
+    display: none;
+  }
+  .mobile-design {
+    display: block;
+  }
+}

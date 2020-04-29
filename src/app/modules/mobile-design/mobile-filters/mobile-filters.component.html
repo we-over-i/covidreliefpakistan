@@ -1,0 +1,108 @@
+<div class="content">
+  <div class="header text-left">
+    <div class="row">
+      <img (click)="cancel()" class="cancel-icon" src="./../../../../assets/images/icons/cancel.png" />
+      <h4 class="header-title">Filters</h4>
+    </div>
+  </div>
+  <div class="row card" style="flex-direction: column;">
+    <!-- Locations -->
+    <div class="table-outlet">
+      <h6 class="table-label">Select Location</h6>
+      <div class="table-responsive course-table">
+        <table class="table">
+          <tbody>
+            <tr *ngFor="let loc of organizationLocations; let i = index">
+              <td>
+                <label class="container p-0 m-0">
+                  <input type="checkbox" (change)="
+                  onLocationChange($event.target.checked, loc)
+                " [checked]="locationChecked(loc)">
+                  <span class="checkmark"></span>
+                  <span class="ml-40">{{ loc }} </span>
+                </label>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Types -->
+    <div class="table-outlet">
+      <h6 class="table-label">Select Type</h6>
+      <div class="table-responsive course-table">
+        <table class="table">
+          <tbody>
+            <tr *ngFor="let type of organizationsTypes; let i = index">
+              <td>
+                <label class="container p-0 m-0">
+                  <input type="checkbox" (change)="
+                  onTypeChange($event.target.checked, type)
+                " [checked]="typeChecked(type)">
+                  <span class="checkmark"></span>
+                  <span class="ml-40">{{ type }} </span>
+                </label>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Providings -->
+    <div class="table-outlet">
+      <h6 class="table-label">Select Providing</h6>
+      <div class="table-responsive course-table">
+        <table class="table">
+          <tbody>
+            <tr *ngFor="let helpingWith of helpingsWith[0]; let i = index">
+              <td>
+                <label class="container p-0 m-0">
+                  <input type="checkbox" (change)="
+                  onProvidingChange($event.target.checked, helpingWith.key)
+                " [checked]="provdingChecked(helpingWith.key)">
+                  <span class="checkmark"></span>
+                  <span class="ml-40">{{ helpingWith.name }} </span>
+                </label>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Needs -->
+    <div class="table-outlet">
+      <h6 class="table-label">Select Need</h6>
+      <div class="table-responsive course-table">
+        <table class="table">
+          <tbody>
+            <tr *ngFor="let lookingFor of lookingsFor[0]; let i = index">
+              <td>
+                <label class="container p-0 m-0">
+                  <input type="checkbox" (change)="
+                  onNeedChange($event.target.checked, lookingFor.key)
+                " [checked]="needChecked(lookingFor.key)">
+                  <span class="checkmark"></span>
+                  <span class="ml-40">{{ lookingFor.name }} </span>
+                </label>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <!-- Buttons -->
+  <div class="row m-0">
+    <div class="card buttons-card">
+      <div class="col-6 p-0">
+        <button class="btn btn-primary w-100" (click)="applyFilters()">Apply Filters</button>
+      </div>
+      <div class="col-6 p-0">
+        <button class="btn btn-secondary w-100" (click)="clearFilters()">Clear Filters</button>
+      </div>
+    </div>
+  </div>
+</div>

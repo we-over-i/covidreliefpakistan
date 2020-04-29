@@ -1,0 +1,125 @@
+/* Custom margins, alignments */
+.mt-11 {
+  margin-top: 11px !important;
+}
+.mt-15 {
+  margin-top: 15px !important;
+}
+.ml-10 {
+  margin-left: 10px !important;
+}
+.mt-21 {
+  margin-top: 21px !important;
+}
+.text-center {
+  margin: 31px -18px 0 !important;
+}
+
+/* Applied styles */
+.title {
+  font-size: 18px;
+  font-family: "Open-Sans-Bold";
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.71;
+  letter-spacing: 1.44px;
+  color: #757575;
+}
+.custom-card {
+  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.08);
+  background-color: #ffffff;
+  padding: 16px 18px;
+  margin-top: 24px !important;
+  text-align: left;
+}
+.govpk,
+.who,
+.doctors-online {
+  margin-top: 10px;
+  text-align: left;
+}
+.gov-link-title,
+.gov-link-title:hover {
+  font-size: 12px;
+  width: 171px;
+  outline: none;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.71;
+  font-family: "Opan-Sans-SemiBold";
+  letter-spacing: 0.96px;
+  color: #2196f3;
+  cursor: pointer;
+}
+.link-icon,
+.link-icon:hover {
+  font-size: 20px !important;
+  font-family: "Open-Sans-Regular" !important;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.71;
+  letter-spacing: 0.96px;
+  text-decoration: none;
+  color: #2196f3;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  width: 40px;
+  justify-content: flex-end;
+}
+.who-description,
+.doctors-description,
+.add-desc {
+  font-size: 11px;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.71;
+  letter-spacing: 0.8px;
+  color: #757575;
+  font-family: "Open-Sans-Light";
+}
+.contact {
+  font-family: "Open-Sans-Regular";
+  font-size: 12px;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.71;
+  letter-spacing: 0.96px;
+  color: #424242;
+}
+.border {
+  border: 1px solid #e0e0e0 !important;
+  width: 96px;
+  height: 1px;
+}
+.whatsapp-icon {
+  width: 19px;
+  height: 19px;
+}
+.phone-icon {
+  width: 13.5px;
+  height: 13.5px;
+  margin-top: 3px;
+}
+.m--10 {
+  margin: -10px 20px 0 !important;
+  font-size: 12px;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.71;
+  letter-spacing: 0.96px;
+  font-family: "Open-Sans-Regular";
+  color: #424242;
+}
+.address {
+  margin-top: 20px !important;
+}
+.web-link {
+  color: #2196f3;
+  font-size: 11px;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.71;
+  letter-spacing: 0.8px;
+  font-family: "Open-Sans-Regular";
+}

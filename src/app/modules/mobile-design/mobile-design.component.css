@@ -1,0 +1,27 @@
+.resources-bar {
+  margin-bottom: 16px;
+}
+.bar-padding {
+  padding: 16px !important;
+  background: #e3f2fd;
+  border: 1px solid #2196f3;
+  box-sizing: border-box;
+  display: flex;
+}
+.resources-bar .bar-title {
+  font-family: "Open-Sans-Bold";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 16px;
+  color: #000000;
+}
+.resources-bar .bar-icon {
+  margin-left: auto;
+  width: 6.18px;
+  align-self: center;
+  height: 10px;
+}
+.content {
+  padding: 16px 16px 25px 16px;
+}

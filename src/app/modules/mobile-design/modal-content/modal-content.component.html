@@ -1,0 +1,208 @@
+<div class="content">
+  <div class="header text-left">
+    <div class="row">
+      <img
+        (click)="cancel()"
+        class="cancel-icon"
+        src="./../../../../assets/images/icons/cancel.png"
+      />
+      <h4 class="header-title">Help Us</h4>
+    </div>
+  </div>
+  <div class="row card" style="flex-direction: column;">
+    <!-- Organization details -->
+    <div class="organization-details">
+      <div class="d-flex" style="flex-direction: column;">
+        <h5 class="title">{{ name }}</h5>
+        <div class="d-flex h-16 mt-8">
+          <!-- location -->
+          <div class="d-flex mr-2">
+            <img
+              class="loc-icon"
+              src="./../../../assets/images/icons/location.png"
+              alt="location"
+            />
+            <span class="ml-2 loc-name">{{ locs[0] }}</span>
+          </div>
+
+          <!-- contact -->
+          <div class="d-flex plr bleft">
+            <img
+              class="phone-icon"
+              src="./../../../assets/images/icons/phone.png"
+              alt="location"
+            />
+            <span class="ml-3"
+              ><p class="phone-number">
+                {{ phones[0] }}
+              </p></span
+            >
+          </div>
+
+          <!-- facebook -->
+          <div *ngIf="fLink !== 0" class="plr bleft">
+            <a class="" href="{{ fLink }}" target="_blank">
+              <img
+                class="facebook-icon"
+                src="./../../../assets/images/icons/facebook.png"
+                alt="location"
+              />
+            </a>
+          </div>
+
+          <!-- instagram -->
+          <div *ngIf="iLink !== 0" class="plr bleft">
+            <a class="p-0" href="{{ iLink }}" target="_blank">
+              <img
+                class="instagram-icon"
+                src="./../../../assets/images/icons/instagram.png"
+                alt="location"
+              />
+            </a>
+          </div>
+
+          <!-- Twitter -->
+          <div *ngIf="tLink !== 0" class="plr bleft">
+            <a class="p-0" href="{{ tLink }}" target="_blank">
+              <img
+                class="instagram-icon"
+                src="./../../../assets/images/icons/twitter.png"
+                alt="location"
+              />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Payment Gateways -->
+    <div
+      *ngIf="easypaiseStatus == 1 && jazzCashStatus == 1"
+      class="row gateway-padding"
+    >
+      <h5 class="gatway-title">
+        Available Payment Gateways
+      </h5>
+      <div class="row" style="width: 100%;">
+        <div *ngIf="jazzCashStatus == 1" class="gatway-box mr-8">
+          <img
+            src="./../../../assets/images/icons/jazzcash.png"
+            alt="JazzCash"
+          />
+          <div *ngFor="let num of jazzCash">
+            <h6 class="contact mt-8">
+              {{ num.accountNumber }}
+            </h6>
+          </div>
+        </div>
+        <div *ngIf="easypaiseStatus == 1" class="gatway-box">
+          <img
+            class="mt-8"
+            src="./../../../assets/images/icons/easypaisa.png"
+            alt="easypaisa"
+          />
+          <div *ngFor="let num of easypaisa">
+            <h6 class="contact mt-8">
+              {{ num.accountNumber }}
+            </h6>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Addresses -->
+    <div *ngIf="addressStatus == 1" class="row">
+      <h5 class="gatway-address-description">
+        In order to make donations in person, use the following addresses:
+      </h5>
+      <div class="row">
+        <div *ngFor="let addressDetail of addresses">
+          <div class="address-box">
+            <div class="d-flex">
+              <img
+                class="address-padding"
+                src="./../../../assets/images/icons/Vector.png"
+                alt="Home Address"
+              />
+
+              <div
+                class="row address-content"
+                style="border-right: 1px solid #e0e0e0;"
+              >
+                <h6 class="address-title">
+                  {{ addressDetail.address }}
+                </h6>
+                <h6 class="address-phone">
+                  <span class="mr-2"
+                    ><strong class="address-title">Phone: </strong></span
+                  >{{ addressDetail.phone }}
+                </h6>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bank details -->
+    <div *ngIf="bankStatus == 1">
+      <div class="bank-details">
+        <h4 class="account-title">List of Bank Accounts</h4>
+        <div *ngFor="let acc of bankAccounts">
+          <div class="col-12 p-0 card-padding">
+            <div class="detail-box accounts-padding">
+              <div class="d-flex">
+                <div class="accounts-titles p-0 col-5 text-left">
+                  Bank Name
+                </div>
+                <div class="col-7 text-left acc-field-value">
+                  {{ acc.bankName }}
+                </div>
+              </div>
+              <div *ngIf="acc.branch !== 0" class="d-flex mt-16">
+                <div class="accounts-titles p-0 col-5 text-left">
+                  Branch
+                </div>
+                <div class="col-7 text-left acc-field-value">
+                  {{ acc.branch }}
+                </div>
+              </div>
+              <div class="d-flex mt-16">
+                <div class="accounts-titles p-0 col-5 text-left">
+                  Account Title
+                </div>
+                <div class="col-7 text-left acc-field-value">
+                  {{ acc.accountTitle }}
+                </div>
+              </div>
+              <div class="d-flex mt-16">
+                <div class="accounts-titles col-5 p-0 text-left">
+                  Account Number
+                </div>
+                <div class="col-7 text-left acc-field-value">
+                  {{ acc.accountNumber }}
+                </div>
+              </div>
+              <div *ngIf="acc.IBAN !== 0" class="d-flex mt-16">
+                <div class="accounts-titles col-5 p-0 text-left">
+                  IBAN
+                </div>
+                <div class="col-7 text-left acc-field-value">
+                  {{ acc.IBAN }}
+                </div>
+              </div>
+              <div *ngIf="acc.swiftCode !== 0" class="d-flex mt-16">
+                <div class="accounts-titles col-5 p-0 text-left">
+                  Swift Code
+                </div>
+                <div class="col-7 text-left acc-field-value">
+                  {{ acc.swiftCode }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

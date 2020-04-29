@@ -1,0 +1,36 @@
+/* Added global styles */
+@import "~bootstrap/dist/css/bootstrap.min.css";
+@import "./fonts.css";
+
+/* Custom styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-family: "OpenSans", sans-serif;
+  background-color: rgba(244, 245, 247, 1) !important;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0 !important;
+}
+.row {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+.left {
+  float: left;
+}
+.right {
+  float: right;
+}
