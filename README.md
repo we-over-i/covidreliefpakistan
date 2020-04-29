@@ -1,4 +1,4 @@
-# COVID Relief Pakistan (Version 1.0.0)
+# COVID Relief Pakistan (version 1.0.0)
 
 [COVID Relief Pakistan](https://covidreliefpakistan.com/)  will help you in finding the relevant organizations working for COVID relief in Pakistan
 
